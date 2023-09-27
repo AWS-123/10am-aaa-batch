@@ -1,0 +1,47 @@
+Providing ownership prmissions to file or directory
+
+chown --- ownership 
+
+Syntax: chown user:group filename/directoryname
+
+change user to the file
+---------------------------------------------
+create user 
+>> useradd sarwa
+>> useradd bindu
+>>check user created or not
+>> cat /etc/passwd
+>> switch to the created user
+>> sudo su sarwa
+>> create file using touch command
+>> touch file1
+>>ls -lrth
+>> here we can see user and group of the file
+-rwx-x-r-- sarwa sarwa file1
+>>change user for this file
+>>sudo chown bindu:sarwa file1
+or
+>> sudo chown bindu filename
+>> ls -lrth
+here we can see the user name is bindu 
+
+-rwx-x-r-- bindu sarwa file1
+-------------------------------------------------------------------------
+change group permissions
+>> create directory
+>> mkdir dir1
+>> create new group
+>>groupadd developers 
+>>cat /etc/group
+>> here we can see the created group
+>> change group ownership permissions
+>>sudo chown :developers dir1
+-------------------------------------------------------------------------
+To create tree structure directories
+mkdir -P dir1/dir2/dir2/dir3
+
+Change permissions to all directories at a time
+sudo chown -R :developers dir1
+
+//-R---Reccursive
+----------------------------------------------------
